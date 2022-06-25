@@ -1,33 +1,34 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"strconv"
-	"strings"
 )
 
 /*https://www.hackerrank.com/challenges/time-conversion/problem?isFullScreen=true */
 
-/*
-buna yeninden BAK
-*/
 func main() {
-	//timePM := "12:01:00:PM"
-	timeAM := "12:01:AM"
-	seperated := strings.Split(timeAM, ":")
-	fmt.Println(seperated)
-
-	if seperated[2] == "AM" || seperated[2] == "PM" {
-		panic("xd:)")
+	time := "07:05:45PM"
+	asd, err := timeConversion(time)
+	if err != nil {
+		panic(err)
 	}
+	fmt.Println(asd)
+}
 
-	hour, _ := strconv.Atoi(seperated[0])
-	min, _ := strconv.Atoi(seperated[1])
-
-	if seperated[2] == "AM" {
-
+func timeConversion(time string) (string, error) {
+	hour, err := strconv.Atoi(time[:2])
+	if err != nil {
+		return "", err
+	}
+	meridian := time[8:]
+	if meridian == "PM" && hour != 12 {
+		newtime := strconv.Itoa(12+hour) + time[2:8]
+		return newtime, err
+	} else if meridian == "AM" {
+		return time[:8], err
 	} else {
-
+		return "", errors.New("invalid format")
 	}
-
 }
