@@ -5,7 +5,7 @@ import "fmt"
 /*https://www.hackerrank.com/challenges/migratory-birds/problem?isFullScreen=true*/
 
 func main() {
-	arr := []int32{1, 4, 4, 4, 5, 3, 3, 3}
+	arr := []int32{1, 4, 4, 4, 5, 3, 3, 3, 2, 2, 2, 2, 2}
 	xd := migratoryBirds(arr)
 	fmt.Println(xd)
 }
@@ -31,11 +31,11 @@ func migratoryBirds(arr []int32) int32 {
 			i++
 		}
 	}
-	fmt.Println(results)
+	i = 0
 	var final = results[0]
-	for m := 0; m < len(results); m++ {
-		if results[m] < final {
-			final = results[m]
+	for i = 0; i < len(results); i++ {
+		if results[i] < final {
+			final = results[i]
 		}
 	}
 	return final
