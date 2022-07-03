@@ -12,12 +12,12 @@ func main() {
 //int n: the number of pages in the book
 //int p: the page number to turn to
 func pageCount(n int32, p int32) int32 {
-	//default front of book page
 	//0 means empty page
 	//kitap ya baştan ya da sondan zaten açık olduğu kabul edildi.
 	//calculate will open page number.
 	var number int32 = 2 + ((n / 2) * 2)
 	book := make([]int32, number)
+	//default front of book page
 	book[0] = 0
 	book[1] = 1
 
