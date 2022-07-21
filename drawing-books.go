@@ -5,7 +5,7 @@ import "fmt"
 /*https://www.hackerrank.com/challenges/drawing-book/problem?isFullScreen=true&h_r=next-challenge&h_v=zen*/
 
 func main() {
-	result := pageCount(6, 3)
+	result := pageCount(6, 2)
 	fmt.Println(result)
 }
 
